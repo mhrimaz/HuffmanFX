@@ -53,6 +53,7 @@ public class FXMLDocumentController implements Initializable {
                     Path path = Paths.get(textFilePath);
                     Task<Huffman> task = new Task<Huffman>() {
                         private final long TOTAL_TASK = 3;
+
                         @Override
                         protected void succeeded() {
                             Huffman huffman = this.getValue();
@@ -66,6 +67,7 @@ public class FXMLDocumentController implements Initializable {
                                 textArea.appendText("\'" + (entry.getKey() == '\n' ? '¶' : entry.getKey()) + "\'\t" + entry.getValue() + "\n");
                             });
                         }
+
                         @Override
                         protected Huffman call() throws Exception {
                             updateProgress(0, TOTAL_TASK);
